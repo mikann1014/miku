@@ -2,13 +2,13 @@ const box = document.querySelector(".box");
 
 // ★ 自分のトークンに変える
 const player = new TextAliveApp.Player({
-  app: { token: "YOUR_API_TOKEN" }
+  app: { token: "CHsUv8HbFOVaud0g" }
 });
 
 player.addListener({
   onAppReady: () => {
     // ★ 曲URL（あとで変えてOK）
-    player.createFromSongUrl("https://piapro.jp/t/XXXX");
+    player.createFromSongUrl("https://piapro.jp/t/B3yJ");
   },
 
   onTimeUpdate: (position) => {
