@@ -1,32 +1,27 @@
 const { Player } = TextAliveApp;
 
-const box = document.querySelector(".box");
-const playBtn = document.querySelector("#play");
-const statusText = document.querySelector("#status");
-
 const player = new Player({
-  app: { token: "IjYiNGcrw0EWxRDc" }
+  app: { token: "IjYiNGcrw0EWxRDc" },
+  mediaElement: document.body // 自動で再生プレイヤーを作る
 });
 
 player.addListener({
-  onAppReady: () => {
+  onAppReady: (app) => {
+    console.log("App Ready!"); // ログ1
     player.createFromSongUrl("https://piapro.jp/t/6K1r/20230120170000");
   },
 
   onVideoReady: () => {
-    statusText.textContent = "準備完了！ボタン押して";
-    
-    playBtn.onclick = () => {
-      player.requestPlay();
-      playBtn.style.display = "none";
-    };
+    console.log("Video Ready!"); // ログ2
+    document.querySelector("#status").textContent = "準備完了！";
   },
 
-  onTimeUpdate: (position) => {
-    const beat = (position % 500) / 500;
-    const step = Math.floor(beat * 2);
-    const x = step * 60;
+  onTimerReady: () => {
+    console.log("Timer Ready!"); // ログ3
+  },
 
-    box.style.transform = `translate(${x}px, -50%)`;
+  // 読み込みエラーが発生した時に教えてくれる
+  onThrottled: (delay) => {
+    console.warn("通信制限中... " + delay + "ms 待機");
   }
 });
