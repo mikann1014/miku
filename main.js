@@ -6,7 +6,6 @@ const player = new TextAliveApp.Player({
 
 player.addListener({
   onAppReady: () => {
-    // 確実に動く曲
     player.createFromSongUrl("https://piapro.jp/t/6K1r/20230120170000");
   },
 
