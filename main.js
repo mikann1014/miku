@@ -25,8 +25,6 @@ player.addListener({
 });
 
 
-const box = document.querySelector(".box");
-
 const player = new TextAliveApp.Player({
   app: { token: "IjYiNGcrw0EWxRDc" }
 });
