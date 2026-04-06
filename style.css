@@ -1,34 +1,25 @@
-const { Player } = TextAliveApp;
+body {
+  background: #1a1a1a;
+  color: white;
+  margin: 0;
+  overflow: hidden;
+}
 
-const box = document.querySelector(".box");
-const playBtn = document.querySelector("#play");
-const statusText = document.querySelector("#status");
+#overlay {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+}
 
-const player = new Player({
-  app: { token: "IjYiNGcrw0EWxRDc" },
-  mediaAutoplay: false, // ◀︎ これを追加（自動再生を無効化して制御しやすくする）
-  mediaElement: document.body // ◀︎ これを追加！画面（body）に自動で再生用の要素を作らせます
-});
-
-player.addListener({
-  onAppReady: () => {
-    player.createFromSongUrl("https://piapro.jp/t/6K1r/20230120170000");
-  },
-
-  onVideoReady: () => {
-    statusText.textContent = "準備完了！ボタン押して";
-    
-    playBtn.onclick = () => {
-      player.requestPlay();
-      playBtn.style.display = "none";
-    };
-  },
-
-  onTimeUpdate: (position) => {
-    const beat = (position % 500) / 500;
-    const step = Math.floor(beat * 2);
-    const x = step * 60;
-
-    box.style.transform = `translate(${x}px, -50%)`;
-  }
-});
+.miku-icon {
+  width: 50px;
+  height: 50px;
+  background: #39c5bb; /* ミクカラー */
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  border-radius: 8px;
+  /* CSSアニメーションの土台 */
+  transition: transform 0.1s linear;
+}
