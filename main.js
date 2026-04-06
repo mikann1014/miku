@@ -6,7 +6,7 @@ const playBtn = document.querySelector("#play");
 const mikuIcon = document.querySelector(".miku-icon");
 
 const player = new Player({
-  app: { token: "IjYiNGcrw0EWxRDc" }, // お持ちのトークン
+  app: { token: "YQvbCkCcJ1q18kkh" }, // お持ちのトークン
   mediaAutoplay: false,
   mediaElement: document.body 
 });
