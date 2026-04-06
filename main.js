@@ -8,7 +8,7 @@ const player = new Player({
 player.addListener({
   onAppReady: (app) => {
     console.log("App Ready!"); // ログ1
-    player.createFromSongUrl("https://piapro.jp/t/6K1r/20230120170000");
+    player.createFromSongUrl("https://piapro.jp/t/B3yJ/20251215061727");
   },
 
   onVideoReady: () => {
