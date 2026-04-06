@@ -2,7 +2,7 @@ const box = document.querySelector(".box");
 
 // ★ 自分のトークンに変える
 const player = new TextAliveApp.Player({
-  app: { token: "CHsUv8HbFOVaud0g" }
+  app: { token: "IjYiNGcrw0EWxRDc" }
 });
 
 player.addListener({
